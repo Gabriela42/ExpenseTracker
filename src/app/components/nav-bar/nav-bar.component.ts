@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class NavBarComponent {
 
-  constructor(public dialog: MatDialog) {}
+  constructor() {}
 
   openDialog(): void {
    
