@@ -18,7 +18,6 @@ export class PresupuestoService {
   constructor(private http: HttpClient) {}
 
   get_items(): Observable<Budget[]> {
-    debugger;
     return this.http.get<Budget[]>(this.api_url);
   }
 
