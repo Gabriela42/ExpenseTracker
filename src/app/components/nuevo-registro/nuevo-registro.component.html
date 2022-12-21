@@ -1,13 +1,11 @@
-<h1> Nuevo Registro</h1>
-<div style="display: flex; justify-content: space-between; flex-wrap: wrap">
-  <div>
-    <mat-form-field class="example-full-width">
-      <mat-label>Nombre</mat-label>
-      <input matInput placeholder="Nombre" />
-    </mat-form-field>
-  </div>
+<h1>Nuevo Registro</h1>
+<div style="display: flex; justify-content:space-around; flex-wrap:wrap">
+  <mat-form-field class="example-full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="Nombre" />
+  </mat-form-field>
 
-  <mat-form-field appearance="fill" >
+  <mat-form-field appearance="fill">
     <mat-label>Categoria</mat-label>
     <mat-select [formControl]="categorias" required>
       <mat-option>--</mat-option>
@@ -20,16 +18,16 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width" >
+  <mat-form-field class="example-full-width" style="margin-left: 10px">
     <mat-label>Monto</mat-label>
     <input matInput placeholder="Monto" />
   </mat-form-field>
 
-  <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+  <div class="example-full-width" style="margin-left: 10px">
     <button
       mat-flat-button
       color="primary"
-      style="height: 55px; margin-left: 10px"
+      style="height: 55px; "
     >
       Guardar
     </button>
