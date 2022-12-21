@@ -2,24 +2,38 @@
   <mat-card>
     <mat-card-content>
       <h2>Presupuesto Inicial</h2>
-      <form class="example-form">
+      <form action="submit">
         <p>
           <mat-form-field appearance="outline">
             <mat-label>Presupuesto</mat-label>
-            <input matInput required type="number" placeholder="0" min="0" onkeypress="return event.charCode >= 48" />
+            <input
+              matInput
+              required
+              type="number"
+              placeholder="0"
+              min="0"
+              onkeypress="return event.charCode >= 48"
+              formControlName="presupuesto"
+            />
           </mat-form-field>
         </p>
         <p>
           <mat-form-field appearance="outline">
             <mat-label>Divisa</mat-label>
-            <input matInput type="number" placeholder="0" min="0" onkeypress="return event.charCode >= 48" />
+            <input
+              matInput
+              type="number"
+              placeholder="0"
+              min="0"
+              onkeypress="return event.charCode >= 48"
+              formControlName="divisa"
+            />
           </mat-form-field>
         </p>
       </form>
     </mat-card-content>
     <mat-card-actions align="end">
-        <button mat-raised-button color="primary">Guardar</button>
-      </mat-card-actions>
+      <button mat-raised-button color="primary" (click)="agregarPresupuesto()">Guardar</button>
+    </mat-card-actions>
   </mat-card>
-  
 </div>

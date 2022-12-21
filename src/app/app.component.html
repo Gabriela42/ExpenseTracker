@@ -1,6 +1,8 @@
 <style>
   :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
     font-size: 14px;
     color: #333;
     box-sizing: border-box;
@@ -36,7 +38,7 @@
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
+    .card-container > *:not(.circle-link),
     .terminal {
       width: 100%;
     }
@@ -66,19 +68,32 @@
 
 <div class="content" role="main">
   <router-outlet></router-outlet>
-<app-nav-bar></app-nav-bar>
+  <app-nav-bar></app-nav-bar>
   <app-budget></app-budget>
   <div class="w-100 position-absolute top-0" *ngIf="modalVersion">
- 
     <div class="alert alert-secondary m-2">
-      <button type="button" class="btn-close position-absolute top-0 end-0 m-1" aria-label="Close" (click)="closeVersion()"></button>
-      A new version of this app is available. <a href="" (click)="updateVersion()">Update now</a>
+      <button
+        type="button"
+        class="btn-close position-absolute top-0 end-0 m-1"
+        aria-label="Close"
+        (click)="closeVersion()"
+      ></button>
+      A new version of this app is available.
+      <a href="" (click)="updateVersion()">Update now</a>
     </div>
   </div>
-  
-  <div class="w-100 position-absolute bottom-0" *ngIf="modalPwaPlatform === 'ANDROID' || modalPwaPlatform === 'IOS'">
+
+  <div
+    class="w-100 position-absolute bottom-0"
+    *ngIf="modalPwaPlatform === 'ANDROID' || modalPwaPlatform === 'IOS'"
+  >
     <div class="alert alert-secondary m-2">
-      <button type="button" class="btn-close position-absolute top-0 end-0 m-1" aria-label="Close" (click)="closePwa()"></button>
+      <button
+        type="button"
+        class="btn-close position-absolute top-0 end-0 m-1"
+        aria-label="Close"
+        (click)="closePwa()"
+      ></button>
       <!-- Android -->
       <div *ngIf="modalPwaPlatform === 'ANDROID'" (click)="addToHomeScreen()">
         Add this WEB app to home screen
@@ -86,7 +101,10 @@
       <!-- iOS with Safari -->
       <div *ngIf="modalPwaPlatform === 'IOS'">
         To install this WEB app on your device, tap the "Menu" button
-        <img src="https://res.cloudinary.com/rodrigokamada/image/upload/v1641089482/Blog/angular-pwa/safari_action_button_38x50.png" class="ios-menu m-0" />
+        <img
+          src="https://res.cloudinary.com/rodrigokamada/image/upload/v1641089482/Blog/angular-pwa/safari_action_button_38x50.png"
+          class="ios-menu m-0"
+        />
         and then "Add to home screen" button
         <i class="bi bi-plus-square"></i>
       </div>
