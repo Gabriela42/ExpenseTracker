@@ -15,6 +15,11 @@ import {MatIconModule} from '@angular/material/icon';
 import { FooterComponent } from './components/footer/footer.component';
 import { BudgetComponent } from './components/budget/budget.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatToolbarModule,
     MatIconModule,
     MatFormFieldModule,
+    MatCardModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDialogModule,
+    MatButtonModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
