@@ -25,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrosService } from './services/registros/registros.service';
+import { PresupuestoService } from './services/Presupuesto.service';
 
 const appRoutes: Routes = [
   {
@@ -84,13 +85,14 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatSelectModule,
     MatTableModule,
-    RouterModule,ReactiveFormsModule, 
-    RouterModule.forRoot(appRoutes, {enableTracing: true}),
-    HttpClientModule
+    RouterModule,ReactiveFormsModule, HttpClientModule,
+    RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [
-    RegistrosService
+    RegistrosService,
+    PresupuestoService
   ],
   bootstrap: [AppComponent],
 })
+
 export class AppModule {}
