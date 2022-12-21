@@ -23,6 +23,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { PresupuestoService } from './services/Presupuesto.service';
 
 const appRoutes: Routes = [
   {
@@ -36,6 +38,10 @@ const appRoutes: Routes = [
   {
     path: 'editar-registro',
     component: EditarRegistroComponent,
+  },
+  {
+    path:'nuevo-presupuesto',
+    component:BudgetComponent
   }
 ];
 
@@ -74,10 +80,10 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatSelectModule,
     MatTableModule,
-    RouterModule,ReactiveFormsModule, 
+    RouterModule,ReactiveFormsModule, HttpClientModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
-  providers: [],
+  providers: [PresupuestoService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
