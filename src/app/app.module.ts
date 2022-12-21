@@ -11,7 +11,10 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MatMenuModule} from '@angular/material/menu'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar'
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
+import { FooterComponent } from './components/footer/footer.component';
+import { BudgetComponent } from './components/budget/budget.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import {MatIconModule} from '@angular/material/icon'
     RegistrosComponent,
     NuevoRegistroComponent,
     EditarRegistroComponent,
-    NavBarComponent
+    NavBarComponent,
+    FooterComponent,
+    BudgetComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +33,7 @@ import {MatIconModule} from '@angular/material/icon'
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
+    MatFormFieldModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
