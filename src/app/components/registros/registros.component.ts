@@ -1,32 +1,47 @@
-import { Component } from '@angular/core';
-import { Categorias } from '../../Categorias';
+import { Component, Inject } from '@angular/core';
 import registrosData from '../../../../db.json';
 import { Registro } from 'src/app/Registro';
 import { RegistrosService } from 'src/app/services/registros/registros.service';
-import { map } from 'rxjs';
+import {MatDialog} from '@angular/material/dialog';
+import { EditarRegistroComponent } from '../editar-registro/editar-registro.component';
+
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 
 @Component({
   selector: 'app-registros',
   templateUrl: './registros.component.html',
   styleUrls: ['./registros.component.css'],
 })
+
 export class RegistrosComponent {
   displayedColumns = ['nombre', 'categoria', 'monto', 'action'];
-  dataSource = ELEMENT_DATA;
 
+  constructor(private registrosService: RegistrosService, public dialog: MatDialog) {
+    this.get_registros();
+
+  }
   all_registros: Registro[] = [];
-  constructor(private registrosService: RegistrosService) {}
+
+  
+  openDialog(): void {
+    this.dialog.open(EditarRegistroComponent, {
+      width: '250px',
+    });
+  }
 
   ngOnInit(): void {
-    this.get_registros();
-    console.log('testtt');
-    console.log(this.all_registros);
   }
+  dataSource = ELEMENT_DATA;
 
   get_registros() {
     this.registrosService.get_items().subscribe((all_items) => {
       this.all_registros = all_items;
+
     });
+    console.log('first')
+    console.log(this.all_registros)
   }
 
   delete_registros(registro: Registro) {
@@ -51,5 +66,4 @@ export class RegistrosComponent {
     });
   }
 }
-
 const ELEMENT_DATA: Registro[] = registrosData.registros;

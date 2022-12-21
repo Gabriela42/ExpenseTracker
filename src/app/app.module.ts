@@ -24,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RegistrosService } from './services/registros/registros.service';
 
 const appRoutes: Routes = [
   {
@@ -87,7 +88,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    RegistrosService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
