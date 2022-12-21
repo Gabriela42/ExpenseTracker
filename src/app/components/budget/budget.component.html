@@ -1,6 +1,6 @@
 <div mat-dialog-content>
     <h2>Presupuesto Inicial</h2>
-    <form action="submit">
+    <form action="submit" [formGroup]="presupuestoForm">
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Presupuesto</mat-label>
@@ -12,7 +12,6 @@
             min="0"
             onkeypress="return event.charCode >= 48"
             formControlName="presupuesto"
-            value="{{ budget.presupuesto }}"
           />
         </mat-form-field>
       </p>
@@ -26,7 +25,6 @@
             min="0"
             onkeypress="return event.charCode >= 48"
             formControlName="divisa"
-            value="{{ budget.divisa }}"
           />
         </mat-form-field>
       </p>
