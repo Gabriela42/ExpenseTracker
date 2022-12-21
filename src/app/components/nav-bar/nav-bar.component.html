@@ -6,7 +6,12 @@
   />
   <span class="toolbar-title">Expense Tracker</span>
   <span class="example-spacer"></span>
-  <mat-button [matMenuTriggerFor]="menu">Presupuesto</mat-button>
+  <mat-button [matMenuTriggerFor]="menu" routerLink="/presupuesto"
+    >Presupuesto</mat-button
+  >
+  <div style="padding-left: 40px">
+    <mat-button routerLink="/registros"> Registros</mat-button>
+  </div>
   <mat-menu #menu="matMenu">
     <a routerLink="/agregarPresupuesto">   <button mat-menu-item>Agregar</button></a>
  

@@ -1,35 +1,39 @@
 {
-  "registros": [
-    {
-      "id": 1,
-      "nombre": "Transferencia",
-      "categoria": "Ingreso",
-      "monto": 2000
-    },
-    {
-      "id": 2,
-      "nombre": "Transferencia 2",
-      "categoria": "Egreso generico",
-      "monto": 500
-    },
-    {
-      " id": 3,
-      "nombre": "Transferencia 3",
-      "categoria": "Vivienda",
-      "monto": 1000
-    },
-    {
-      "id": 4,
-      "nombre": "Transferencia 4",
-      "categoria": "Transporte",
-      "monto": 200
-    }
-  ],
-  "presupuestos": [
-    {
-      "id": 1,
-      "presupuesto": 2000,
-      "divisa": 20.4
-    }
-  ]
+  "registros" : [
+  {
+    "id": 1, 
+    "nombre": "Transferencia",
+    "categoria": "Ingreso",
+    "monto": 2000,
+    "action" : null
+  },
+  {
+    "id": 2,
+    "nombre": "Transferencia 2",
+    "categoria": "Egreso generico",
+    "monto": 500,
+    "action" : null
+  },
+  {
+   " id": 3,
+    "nombre": "Transferencia 3",
+    "categoria": "Vivienda",
+    "monto": 1000,
+    "action" : null
+  },
+  {
+    "id": 4,
+    "nombre": "Transferencia 4",
+    "categoria": "Transporte",
+    "monto": 200,
+    "action" : null
+  }
+],
+"presupuestos": [
+  {
+    "id": 1,
+    "presupuesto": 2000,
+    "divisa": 20.4
+  }
+]
 }

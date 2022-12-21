@@ -29,6 +29,10 @@ import { PresupuestoService } from './services/Presupuesto.service';
 const appRoutes: Routes = [
   {
     path: '',
+    component: BudgetComponent,
+  },
+  {
+    path: 'registros',
     component: RegistrosComponent,
   },
   {
@@ -40,8 +44,8 @@ const appRoutes: Routes = [
     component: EditarRegistroComponent,
   },
   {
-    path:'nuevo-presupuesto',
-    component:BudgetComponent
+    path: 'presupuesto',
+    component: BudgetComponent,
   }
 ];
 
@@ -86,4 +90,5 @@ const appRoutes: Routes = [
   providers: [PresupuestoService],
   bootstrap: [AppComponent],
 })
+
 export class AppModule {}
