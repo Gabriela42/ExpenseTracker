@@ -1,0 +1,27 @@
+{
+  "registros" : [
+  {
+    "id": 1, 
+    "nombre": "Transferencia",
+    "categoria": "Ingreso",
+    "monto": 2000
+  },
+  {
+    "id": 2,
+    "nombre": "Transferencia 2",
+    "categoria": "Egreso generico",
+    "monto": 500
+  },
+  {
+   " id": 3,
+    "nombre": "Transferencia 3",
+    "categoria": "Vivienda",
+    "monto": 1000
+  },
+  {
+    "id": 4,
+    "nombre": "Transferencia 4",
+    "categoria": "Transporte",
+    "monto": 200
+  }
+]}
