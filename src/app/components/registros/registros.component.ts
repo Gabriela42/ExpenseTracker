@@ -1,34 +1,55 @@
 import { Component } from '@angular/core';
 import { Categorias } from '../../Categorias';
-import * as data from '../../../../db.json';
+import registrosData from '../../../../db.json';
+import { Registro } from 'src/app/Registro';
+import { RegistrosService } from 'src/app/services/registros/registros.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-registros',
   templateUrl: './registros.component.html',
-  styleUrls: ['./registros.component.css']
+  styleUrls: ['./registros.component.css'],
 })
 export class RegistrosComponent {
-  // registrosDisponibles = data.registros;
-  displayedColumns = ['position', 'name', 'weight' ];
+  displayedColumns = ['nombre', 'categoria', 'monto', 'action'];
   dataSource = ELEMENT_DATA;
-}
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+
+  all_registros: Registro[] = [];
+  constructor(private registrosService: RegistrosService) {}
+
+  ngOnInit(): void {
+    this.get_registros();
+    console.log('testtt');
+    console.log(this.all_registros);
+  }
+
+  get_registros() {
+    this.registrosService.get_items().subscribe((all_items) => {
+      this.all_registros = all_items;
+    });
+  }
+
+  delete_registros(registro: Registro) {
+    this.registrosService.delete_item(registro).subscribe(() => {
+      this.all_registros = this.all_registros.filter(
+        (t) => t.id !== registro.id
+      );
+    });
+  }
+
+  update_registros(registro: Registro) {
+    this.registrosService.update_item(registro).subscribe(() => {
+      this.get_registros();
+    });
+  }
+
+  add_registros(nombre: string, categoria: string, monto: number, action: null) {
+    if (!nombre) return;
+    let registro: Registro = { nombre, categoria, monto,action };
+    this.registrosService.add_item(registro).subscribe((new_task) => {
+      this.all_registros.push(new_task);
+    });
+  }
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
-
+const ELEMENT_DATA: Registro[] = registrosData.registros;

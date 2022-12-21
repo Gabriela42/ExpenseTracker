@@ -23,10 +23,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   {
     path: '',
+    component: BudgetComponent,
+  },
+  {
+    path: 'registros',
     component: RegistrosComponent,
   },
   {
@@ -36,6 +41,10 @@ const appRoutes: Routes = [
   {
     path: 'editar-registro',
     component: EditarRegistroComponent,
+  },
+  {
+    path: 'presupuesto',
+    component: BudgetComponent,
   }
 ];
 
@@ -75,7 +84,8 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatTableModule,
     RouterModule,ReactiveFormsModule, 
-    RouterModule.forRoot(appRoutes, {enableTracing: true})
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

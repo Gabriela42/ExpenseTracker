@@ -23,8 +23,11 @@
       "ES2022",
       "dom"
     ],
-    "resolveJsonModule":true
+    "resolveJsonModule":true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
   },
+  "include": ["db.json"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
