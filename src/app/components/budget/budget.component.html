@@ -1,38 +1,42 @@
 <div mat-dialog-content>
-    <h2>Presupuesto Inicial</h2>
-    <form action="submit" [formGroup]="presupuestoForm">
-      <p>
-        <mat-form-field appearance="outline">
-          <mat-label>Presupuesto</mat-label>
-          <input
-            matInput
-            required
-            type="number"
-            placeholder="0"
-            min="0"
-            onkeypress="return event.charCode >= 48"
-            formControlName="presupuesto"
-            value="{{budget.presupuesto}}"
-          />
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Divisa</mat-label>
-          <mat-select [formControl]="divisas" [(ngModel)]="selectedValue" name="divisa">
-            <mat-option
-              *ngFor="let divisa of divisasDisponibles"
-              [value]="divisa"
-            >
-              {{ divisa }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </p>
-    </form>
+  <h2>Presupuesto Inicial</h2>
+  <form action="submit" [formGroup]="presupuestoForm">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Presupuesto</mat-label>
+        <input
+          matInput
+          required
+          type="number"
+          formControlName="presupuesto"
+          pattern="[0-9]*"
+          value="{{ budget.presupuesto }}"
+        />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Divisa</mat-label>
+        <mat-select
+          [formControl]="divisas"
+          [(ngModel)]="selectedValue"
+          name="divisa"
+        >
+          <mat-option
+            *ngFor="let divisa of divisasDisponibles"
+            [value]="divisa"
+          >
+            {{ divisa }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+  </form>
 </div>
 <div mat-dialog-actions>
-  <div  *ngIf="this.disabled">
-    <button mat-raised-button color="primary" (click)="agregarPresupuesto()">Guardar</button>
+  <div *ngIf="this.disabled">
+    <button mat-raised-button color="primary" (click)="agregarPresupuesto()">
+      Guardar
+    </button>
   </div>
 </div>
