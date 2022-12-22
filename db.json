@@ -30,5 +30,10 @@
     }
   ],
   "presupuestos": [
+    {
+      "presupuesto": 3000,
+      "divisa": 20,
+      "id": 1
+    }
   ]
 }

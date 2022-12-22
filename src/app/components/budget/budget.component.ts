@@ -25,7 +25,6 @@ export class BudgetComponent implements OnInit {
   
   all_budgets: Budget[] = [];
   budget: Budget = { id: 0, presupuesto: 0, divisa: 0 };
-  edit:boolean=false;
 
   ngOnInit(): void {
     this.presupuestoForm = this.formBuilder.group({
@@ -42,12 +41,12 @@ export class BudgetComponent implements OnInit {
 
       if (all_items.length > 0) {
         this.budget = this.all_budgets[0];
+        this.presupuestoForm.controls["presupuesto"].disabled;
       }
     });
   }
 
   agregarPresupuesto() {
-    debugger;
     this.presupuestoService.add_item(this.presupuestoForm.value).subscribe((response) => {
       debugger;
     });
