@@ -1,25 +1,46 @@
 {
   "registros": [
     {
-      " id": 3,
+      " id": 1,
       "nombre": "Transferencia 3",
       "categoria": "Vivienda",
       "monto": 1000,
       "action": null
     },
     {
-      "id": 4,
+      "id": 2,
       "nombre": "Transferencia 4",
       "categoria": "Ingreso",
       "monto": "25000",
+      "action": null
+    },
+    {
+      "id": 3,
+      "nombre": "test",
+      "categoria": "Ingreso",
+      "monto": 2000,
+      "action": null
+    },
+    {
+      "id": 4,
+      "nombre": "test transferencia",
+      "categoria": "Egreso Generico",
+      "monto": "200",
+      "action": null
+    },
+    {
+      "id": 5,
+      "nombre": "test 3",
+      "categoria": "Ingreso",
+      "monto": 150,
       "action": null
     }
   ],
   "presupuestos": [
     {
       "id": 1,
-      "presupuesto": 15350,
-      "divisa": "LPS"
+      "presupuesto": 40000,
+      "divisa": "USD"
     }
   ]
 }

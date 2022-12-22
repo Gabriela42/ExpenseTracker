@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { Registro } from 'src/app/Registro';
-import { RegistrosService } from 'src/app/services/registros/registros.service';
+import { Registro } from '../../Registro';
+import { RegistrosService } from '../../services/registros/registros.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditarRegistroComponent } from '../editar-registro/editar-registro.component';
 
@@ -49,16 +49,20 @@ export class RegistrosComponent {
     });
   }
 
-  // add_registros(
-  //   nombre: string,
-  //   categoria: string,
-  //   monto: number,
-  //   action: null
-  // ) {
-  //   if (!nombre) return;
-  //   let registro: Registro = { nombre, categoria, monto, action };
-  //   this.registrosService.add_item(registro).subscribe((new_task) => {
-  //     this.all_registros.push(new_task);
-  //   });
-  // }
+  add_registros(
+    nombre: string,
+    categoria: string,
+    monto: number,
+    action: null
+  ) {
+    if (!nombre) return;
+    let id: number = this.all_registros.length;
+    console.log(id)
+    let registro: Registro = { id, nombre, categoria, monto, action };
+    this.registrosService.add_item(registro).subscribe((new_task) => {
+      this.all_registros.push(new_task);
+    });
+    this.get_registros();
+
+  }
 }
