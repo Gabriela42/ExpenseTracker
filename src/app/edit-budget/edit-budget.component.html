@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Editar Presupuesto</h1>
+<div mat-dialog-content>
+    <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Presupuesto</mat-label>
+          <input
+            matInput
+            required
+            type="number"
+            placeholder="0"
+            min="0"
+            onkeypress="return event.charCode >= 48"
+            formControlName="presupuesto"
+          />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Divisa</mat-label>
+          <input
+            matInput
+            type="number"
+            placeholder="0"
+            min="0"
+            onkeypress="return event.charCode >= 48"
+            formControlName="divisa"
+          />
+        </mat-form-field>
+      </p>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close cdkFocusInitial>Guardar</button>
+    <button mat-button mat-dialog-close>Cancelar</button>
+  </div>
+</div>
+
