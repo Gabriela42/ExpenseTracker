@@ -26,6 +26,7 @@
     "resolveJsonModule":true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "types": ["jasmine"]
   },
   "include": ["db.json"],
   "angularCompilerOptions": {
