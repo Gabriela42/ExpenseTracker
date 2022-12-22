@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { MatDialogRef} from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import {
   FormControl,
   FormBuilder,
@@ -7,11 +11,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { Categorias } from 'src/app/Categorias';
+import { Registro } from 'src/app/Registro';
 
 @Component({
   selector: 'app-editar-registro',
   templateUrl: './editar-registro.component.html',
-  styleUrls: ['./editar-registro.component.css']
+  styleUrls: ['./editar-registro.component.css'],
 })
 export class EditarRegistroComponent {
   categoriasDisponibles = [
@@ -24,12 +29,20 @@ export class EditarRegistroComponent {
   formulario!: FormGroup;
   showPreview = false;
 
-  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<EditarRegistroComponent>) {}
+  constructor(
+    private fb: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public registroEdit: any
+  ) {}
+
   ngOnInit(): void {
     this.formulario = this.fb.group({
+      id: [],
       nombre: ['', Validators.required],
       categoria: this.fb.array([this.fb.control('')]),
       monto: ['', Validators.required],
     });
+
+    console.log('modal');
+    console.log(this.registroEdit);
   }
 }

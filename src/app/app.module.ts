@@ -86,7 +86,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatTableModule,
     RouterModule,ReactiveFormsModule, HttpClientModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true})
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     RegistrosService,
