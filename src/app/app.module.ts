@@ -1,8 +1,7 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule, isDevMode, Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -25,7 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrosService } from './services/registros/registros.service';
-import { PresupuestoService } from './services/Presupuesto.service';
+import { PresupuestoService } from './services/presupuestos/presupuesto.service';
 
 const appRoutes: Routes = [
   {
@@ -74,19 +73,19 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatButtonModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000',
-    }),
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
     MatSelectModule,
     MatTableModule,
     RouterModule,ReactiveFormsModule, HttpClientModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true})
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000',
+    })
   ],
   providers: [
     RegistrosService,
@@ -94,5 +93,4 @@ const appRoutes: Routes = [
   ],
   bootstrap: [AppComponent],
 })
-
 export class AppModule {}
