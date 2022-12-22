@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import Budget from '../Budget';
+import Budget from '../../Budget';
 
 const httpOptions = {
   headers: new HttpHeaders({

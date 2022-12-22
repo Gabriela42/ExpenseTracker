@@ -7,7 +7,7 @@ import {
   NgForm,
   Validators,
 } from '@angular/forms';
-import { PresupuestoService } from '../../services/Presupuesto.service';
+import { PresupuestoService } from '../../services/presupuestos/presupuesto.service';
 import Budget from '../../Budget';
 
 @Component({
@@ -37,7 +37,7 @@ export class BudgetComponent implements OnInit {
   }
 
   get_budgets() {
-    this.presupuestoService.get_items().subscribe((all_items) => {
+    this.presupuestoService.get_items().subscribe((all_items:any) => {
       this.all_budgets = all_items;
 
       if (all_items.length > 0) {
