@@ -13,9 +13,7 @@
     <mat-button routerLink="/registros"> Registros</mat-button>
   </div>
   <mat-menu #menu="matMenu">
-    <a routerLink="/agregarPresupuesto">   <button mat-menu-item>Agregar</button></a>
- 
-    <button mat-menu-item>Editar</button>
-    <button mat-menu-item>Reiniciar</button>
+    <button mat-menu-item (click)="editarPresupuesto()">Editar</button>
+    <button mat-menu-item (click)="reiniciarPresupuesto()">Reiniciar</button>
   </mat-menu>
 </mat-toolbar>
