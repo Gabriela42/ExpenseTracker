@@ -12,6 +12,7 @@ import {
 } from '@angular/forms';
 import { Categorias } from 'src/app/Categorias';
 import { Registro } from 'src/app/Registro';
+import { RegistrosService } from 'src/app/services/registros/registros.service';
 
 @Component({
   selector: 'app-editar-registro',
@@ -28,21 +29,34 @@ export class EditarRegistroComponent {
   categorias = new FormControl<Categorias | null>(null);
   formulario!: FormGroup;
   showPreview = false;
+  selectedValue: string = '';
 
   constructor(
     private fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public registroEdit: any
+    private registrosService: RegistrosService,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   ngOnInit(): void {
-    this.formulario = this.fb.group({
-      id: [],
-      nombre: ['', Validators.required],
-      categoria: this.fb.array([this.fb.control('')]),
-      monto: ['', Validators.required],
-    });
+    console.log('on init');
+    console.log(this.data);
 
-    console.log('modal');
-    console.log(this.registroEdit);
+    this.formulario = this.fb.group({
+      id: [this.data.id],
+      nombre: [this.data.nombre, Validators.required],
+      categoria: [this.data.categoria],
+      monto: [this.data.monto, Validators.required],
+    });
+  }
+  editarRegistro() {
+    let id = this.formulario.controls['id'].value;
+    let nombre = this.formulario.controls['nombre'].value;
+    let categoria = this.selectedValue;
+    let monto = this.formulario.controls['monto'].value;
+    let action = null;
+    let newRegistro: Registro = { id, nombre, categoria, monto, action };
+    console.log('editar registro');
+    console.log(newRegistro);
+    this.registrosService.update_item(newRegistro).subscribe((response) => {});
   }
 }

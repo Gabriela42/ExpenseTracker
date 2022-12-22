@@ -1,32 +1,45 @@
-<h1 mat-dialog-title>Editar Registro</h1>
 <div mat-dialog-content>
-  <div>
-    <mat-form-field class="example-full-width">
-      <mat-label>Nombre</mat-label>
-      <input matInput placeholder="Nombre" />
-    </mat-form-field>
-  </div>
+  <h1 mat-dialog-title>Editar Registro</h1>
+  <form action="submit" [formGroup]="formulario">
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Nombre" formControlName="nombre" />
+      </mat-form-field>
+    </div>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Categoria</mat-label>
-    <mat-select [formControl]="categorias" required>
-      <mat-option>--</mat-option>
-      <mat-option
-        *ngFor="let categoria of categoriasDisponibles"
-        [value]="categoria"
+    <mat-form-field appearance="fill">
+      <mat-label>Categoria</mat-label>
+      <mat-select
+        [formControl]="categorias"
+        [(ngModel)]="selectedValue"
+        name="categoria"
+        required
       >
-        {{ categoria }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+        <mat-option>--</mat-option>
+        <mat-option
+          *ngFor="let categoria of categoriasDisponibles"
+          [value]="categoria"
+        >
+          {{ categoria }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Monto</mat-label>
-    <input matInput placeholder="Monto" />
-  </mat-form-field>
-  <div mat-dialog-actions>
-  <button mat-button mat-dialog-close cdkFocusInitial>Guardar</button>
-  <button mat-button mat-dialog-close>Cancelar</button>
+    <mat-form-field class="example-full-width">
+      <mat-label>Monto</mat-label>
+      <input matInput placeholder="Monto" formControlName="monto" />
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button
+        mat-button
+        mat-dialog-close
+        cdkFocusInitial
+        (click)="editarRegistro()"
+      >
+        Guardar
+      </button>
+      <button mat-button mat-dialog-close>Cancelar</button>
+    </div>
+  </form>
 </div>
-</div>
-
