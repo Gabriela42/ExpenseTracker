@@ -27,7 +27,20 @@
       "categoria": "Transporte",
       "monto": 200,
       "action": null
+    },
+    {
+      "id": 5,
+      "nombre": "test",
+      "categoria": "Ingreso",
+      "monto": 2000,
+      "action": null
     }
   ],
-  "presupuestos": []
+  "presupuestos": [
+    {
+      "id": 1,
+      "presupuesto": 40000,
+      "divisa": "USD"
+    }
+  ]
 }
