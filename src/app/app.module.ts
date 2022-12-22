@@ -79,7 +79,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatTableModule,
     RouterModule,ReactiveFormsModule, HttpClientModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    RouterModule.forRoot(appRoutes),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
