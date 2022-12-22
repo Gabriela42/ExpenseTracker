@@ -52,7 +52,7 @@ export class EditarRegistroComponent {
     let id = this.formulario.controls['id'].value;
     let nombre = this.formulario.controls['nombre'].value;
     let categoria = this.selectedValue;
-    let monto = this.formulario.controls['monto'].value;
+    let monto: number = parseInt(this.formulario.controls['monto'].value);
     let action = null;
     let newRegistro: Registro = { id, nombre, categoria, monto, action };
     console.log('editar registro');

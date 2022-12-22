@@ -10,8 +10,8 @@
     {
       "id": 2,
       "nombre": "Transferencia 4",
-      "categoria": "Ingreso",
-      "monto": "25000",
+      "categoria": "Egreso Generico",
+      "monto": 10,
       "action": null
     },
     {
@@ -25,7 +25,7 @@
       "id": 4,
       "nombre": "test transferencia",
       "categoria": "Egreso Generico",
-      "monto": "200",
+      "monto": 200,
       "action": null
     },
     {
