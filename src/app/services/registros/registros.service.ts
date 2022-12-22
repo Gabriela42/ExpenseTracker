@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Categorias } from 'src/app/Categorias';
 import { Registro } from '../../Registro';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
