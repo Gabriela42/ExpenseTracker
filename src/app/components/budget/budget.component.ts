@@ -56,6 +56,7 @@ export class BudgetComponent implements OnInit {
       this.all_budgets = all_items;
       if (all_items.length > 0) {
         this.budget = this.all_budgets[0];
+
         this.disableComponents();
       }
       else if(all_items.length===0){
@@ -70,8 +71,18 @@ export class BudgetComponent implements OnInit {
     let divisa=this.selectedValue;
     let newBudget:Budget={id,presupuesto,divisa};
     this.presupuestoService.add_item(newBudget).subscribe((response) => {
-
       this.get_budgets();
     });
   }
+
+  deleteBudget(){
+    let id=1;
+    let presupuesto=this.presupuestoForm.controls["presupuesto"].value;
+    let divisa=this.selectedValue;
+    let deleteBudget:Budget={id,presupuesto,divisa};
+    this.presupuestoService.delete_item(deleteBudget).subscribe((response) => {
+      this.get_budgets();
+    });
+  }
+
 }
